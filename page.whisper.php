@@ -1,6 +1,6 @@
 <?php
 /**
- * 超级时光鸡
+ * 即刻
  * @author 即刻学术 www.ijkxs.com
  * @package custom
  */
@@ -9,6 +9,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php $this->need('module/head.php'); ?>
+	<link rel="stylesheet" href="//cdn.staticfile.org/Swiper/5.4.5/css/swiper.min.css" />
+	<script src="//cdn.staticfile.org/Swiper/5.4.5/js/swiper.min.js"></script>
+	<script src="https://fastly.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js"></script>
+	<link rel="stylesheet" href="<?= joe\theme_url('assets/css/joe.index.css'); ?>">
+	<script src="<?= joe\theme_url('assets/js/joe.index.js'); ?>"></script>
+	
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp">
@@ -20,13 +27,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
     <!-- favicon图标 -->
     <link rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/typecho_joe_theme@4.3.5/assets/img/favicon.ico">
     <!-- Typecho自有函数 -->
-    <meta name="description" content="超级时光鸡">
+    <meta name="description" content="即刻">
     <meta name="generator" content="Typecho 1.2/18.1.29">
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 
     <!-- 网站标题 -->
-    <title>超级时光鸡</title>
+    <title>即刻</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap-grid.min.css"
           media="all">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" media="all">
@@ -41,17 +48,28 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
 </head>
 <body>
-<section>
-    <!-- 主体 -->
-    <section class="container j-post">
-        <section class="j-adaption">
-            <?php $this->need('times/dycomment.php'); ?>
-        </section>
-
-    </section>
-</section>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/typecho_joe_theme@4.4.5/assets/js/OwO.min.js"></script>
+    <div id="Joe">
+        <?php $this->need('module/header.php'); ?>
+        <div class="joe_container">
+            <div class="joe_main">
+            	<div class="joe_index">
+					<section>
+                    <!-- 主体 -->
+                        <section class="container j-post">
+                            <section class="j-adaption">
+                                <?php $this->need('module/batten.php'); ?>
+                                <?php $this->need('times/dycomment.php'); ?>
+                            </section>
+                        </section>
+                    </section>			
+				</div>
+            </div>
+            <?php $this->need('module/aside.php'); ?>
+        </div>
+        <?php $this->need('module/footer.php'); ?>
+    </div>
+<script src="https://cdn.todsay.com/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.todsay.com/npm/typecho_joe_theme@4.4.5/assets/js/OwO.min.js"></script>
 
 <script>
     function changeURLArg(url,arg,arg_val){
@@ -87,7 +105,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
                 $('.OwO').removeClass('OwO-open');
             });
         },
-        /* 初始化微语发布 */
+        /* 初始化即刻发布 */
         init_dynamic_verify() {
             let _this = this;
             $('#j-dynamic-form').off('submit').on('submit', function (e) {
